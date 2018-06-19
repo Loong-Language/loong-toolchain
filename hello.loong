@@ -1,6 +1,6 @@
 hmodule hello(input  logic a, b, c,
-              output logic y);
+              output logic y) {
   assign y = ~a & ~b & ~c |
               a & ~b & ~c |
               a & ~b &  c;
-endhmodule
+}
