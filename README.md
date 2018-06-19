@@ -12,7 +12,7 @@ $ git clone git@github.com:Loong-Language/loong-clang.git clang
 $ cd ..
 $ mkdir build
 $ cd build
-$ sudo yum install libffi-devel
+$ sudo yum install libffi-devel binutils-devel
 $ cmake .. -DCMAKE_INSTALL_PREFIX=/opt/loong-llvm \
     -DCMAKE_BUILD_TYPE=Release \
     -DLLVM_ENABLE_ASSERTIONS=ON \
@@ -42,4 +42,20 @@ $ cmake .. -DCMAKE_INSTALL_PREFIX=/opt/loong-llvm \
     -DCLANG_VENDOR="Loongson"
 $ make -j4
 $ sudo make install
+```
+
+## Test
+
+```
+$ make check-clang-driver
+$ make check-clang-parser
+```
+
+## Usage
+
+```
+/opt/loong-llvm/bin/clang hello.loong -S -emit-llvm -o hello.ll
+/opt/loong-llvm/bin/opt -S -load /opt/loong-llvm/lib/LoongLLVM.so -other-pass1 hello.ll > hello1.ll
+/opt/loong-llvm/bin/opt -S -load /opt/loong-llvm/lib/LoongLLVM.so -other-pass2 hello1.ll > hello2.ll
+/opt/loong-llvm/bin/opt -S -load /opt/loong-llvm/lib/LoongLLVM.so -v2c hello2.ll > opt-circuit.svg
 ```
