@@ -1,0 +1,14 @@
+#!/bin/bash
+
+LLVM_HOME=/opt/loong-llvm
+CC=$(LLVM_HOME)/bin/clang
+OPT=$(LLVM_HOME)/bin/opt
+LOONG_LIB=$(LLVM_HOME)lib/LoongLLVM.so
+CFLAGS=-Xclang -disable-O0-optnone -v -S -emit-llvm
+SOURCE=$1
+
+# SOURCE -> LLVM IR
+$CC $CFLAGS $SOURCE -o $(SOURCE).ll
+
+# LLVM IR -> OPT PASS -> LLVM IR'
+$OPT -S -load $LOONG_LIB $(SOURCE).ll > $(SOURCE)66.ll
