@@ -51,6 +51,13 @@ $ make check-clang-driver
 $ make check-clang-parser
 ```
 
+### Regression Test
+
+```
+$ cd test
+$ ./test.sh
+```
+
 ## Usage
 
 ```
