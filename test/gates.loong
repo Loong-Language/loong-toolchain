@@ -1,9 +1,11 @@
-hmodule gates(input  logic [3:0] a, b,
-              output logic [3:0] y1, y2, y3, y4, y5) {
+hmodule gates(input  logic a[3], b[3],
+              output logic y1[3], y2[3], y3[3], y4[3], y5[3]) {
   /* five different two-input logic gates acting on 4-bit busses */
-  y1 = a & b; 		// AND
-  y2 = a | b; 		// OR
-  y3 = a ^ b; 		// XOR
-  y4 = ~(a & b); 	// NAND
-  y5 = ~(a | b);	// NOR
+  for (int i = 0; i < 3; i++) {
+    y1[i] = a[i] & b[i]; 	// AND
+    y2[i] = a[i] | b[i]; 	// OR
+    y3[i] = a[i] ^ b[i]; 	// XOR
+    y4[i] = ~(a[i] & b[i]); 	// NAND
+    y5[i] = ~(a[i] | b[i]);	// NOR
+  }
 }
