@@ -12,4 +12,7 @@ $CC inv.loong -S -emit-llvm -Werror -o inv.loong.ll
 $CC gates.loong -S -emit-llvm -Werror -o gates.loong.ll
 $CC and8.loong -S -emit-llvm -Werror -o and8.loong.ll
 $CC mux2.loong -S -emit-llvm -Werror -o mux2.loong.ll
+$CC mux4.loong -S -emit-llvm -Werror -o mux4.loong.ll
+$CC fulladder.loong -S -emit-llvm -Werror -o fulladder.loong.ll
+$CC smux4.loong -S -emit-llvm -Werror -o smux4.loong.ll
 $CC flop.loong -S -emit-llvm -Werror -o flop.loong.ll
