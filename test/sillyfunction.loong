@@ -1,6 +1,6 @@
-hmodule sillyfunction(input  logic a, b, c,
-                      output logic y) {
-  y = ~a & ~b & ~c |
-       a & ~b & ~c |
-       a & ~b &  c;
+hmodule sillyfunction(input  a, b, c,
+                      output y) {
+  __assign(y = ~a & ~b & ~c |
+                a & ~b & ~c |
+                a & ~b &  c);
 }

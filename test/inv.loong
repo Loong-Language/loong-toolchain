@@ -1,5 +1,5 @@
-hmodule inv(input  logic a[3],
-            output logic y[3]) {
+hmodule inv(input  a[3],
+            output y[3]) {
   for (int i = 0; i < 3; i++)
     y[i] = ~a[i];
 }

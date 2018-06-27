@@ -1,5 +1,5 @@
-hmodule gates(input  logic a[3], b[3],
-              output logic y1[3], y2[3], y3[3], y4[3], y5[3]) {
+hmodule gates(input  a[3], b[3],
+              output y1[3], y2[3], y3[3], y4[3], y5[3]) {
   /* five different two-input logic gates acting on 4-bit busses */
   for (int i = 0; i < 3; i++) {
     y1[i] = a[i] & b[i]; 	// AND

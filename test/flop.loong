@@ -1,6 +1,6 @@
-hmodule flop(input  logic clk,
-             input  logic d[3],
-             output logic q[3]) {
-  always_ff(posedge clk)
-    q <= d;
+hmodule flop(input  clk,
+             input  d[3],
+             output q[3]) {
+  __always(posedge clk)
+    __nonblock_assign(q = d);
 }
