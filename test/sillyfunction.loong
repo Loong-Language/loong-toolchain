@@ -1,6 +1,22 @@
-hmodule sillyfunction(input  a, b, c,
-                      output y) {
-  __assign(y = ~a & ~b & ~c |
-                a & ~b & ~c |
-                a & ~b &  c);
+#include <iostream>
+
+hmodule silly {
+  silly(input  a,
+        input  b,
+        input  c,
+        output y) {
+    __assign(y = ~a & ~b & ~c |
+                  a & ~b & ~c |
+                  a & ~b &  c);
+  }
+
+public:
+  static auto sillyfunction() {
+    std::cout << "Hello world by Loong" << std::endl;
+  }
+};
+
+int main(int argc, char *argv[]) {
+  silly::sillyfunction();
+  return 0;
 }

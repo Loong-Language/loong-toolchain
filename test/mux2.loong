@@ -1,7 +1,10 @@
-hmodule mux2(input  d0[3], d1[3],
-             input  s,
-             output y[3]) {
-  for (int i = 0; i < 3; i++) {
-    y[i] = s ? d1[i] : d0[i];
+hmodule mux2 {
+  mux2(input  d0[3],
+       input  d1[3],
+       input  s,
+       output y[3]) {
+    for (auto i = 0; i < 3; i++) {
+      y[i] = s ? d1[i] : d0[i];
+    }
   }
-}
+};

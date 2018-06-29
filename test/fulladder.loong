@@ -1,8 +1,13 @@
-hmodule fulladder(input  a, b, cin,
-                  output s, cout) {
-  wire p, g;
-  p = a ^ b;
-  g = a & b;
-  s = p ^ cin;
-  cout = g | (p & cin);
-}
+hmodule fulladder {
+  fulladder(input  a,
+            input b,
+            input cin,
+            output s,
+            output cout) {
+    wire p, g;
+    p = a ^ b;
+    g = a & b;
+    s = p ^ cin;
+    cout = g | (p & cin);
+  }
+};

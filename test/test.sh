@@ -3,23 +3,24 @@
 rm -f *.ll *.v *.out
 
 LLVM_HOME=/opt/loong-llvm
-CC=$LLVM_HOME/bin/clang
+CXX=$LLVM_HOME/bin/clang++
 OPT=$LLVM_HOME/bin/opt
 LOONG_LIB=$LLVM_HOME/lib/LoongLLVM.so
-CFLAG="-Xclang -disable-O0-optnone -S -emit-llvm -Werror"
+CXXFLAG="-Xclang -disable-O0-optnone -S -emit-llvm -Werror -std=c++17"
 
-$CC --version
+$CXX --version
 
-$CC empty.loong $CFLAG -o empty.loong.ll
+$CXX empty.loong $CXXFLAG -o empty.loong.ll
 
-$CC sillyfunction.loong $CFLAG -o sillyfunction.loong.ll
+$CXX -std=c++17 sillyfunction.loong
+$CXX sillyfunction.loong $CXXFLAG -o sillyfunction.loong.ll
 $OPT -S -load $LOONG_LIB -generate-verilog sillyfunction.loong.ll 2> sillyfunction.v > /dev/null
 
-$CC inv.loong $CFLAG -o inv.loong.ll
-$CC gates.loong $CFLAG -o gates.loong.ll
-$CC and8.loong $CFLAG -o and8.loong.ll
-$CC mux2.loong $CFLAG -o mux2.loong.ll
-$CC mux4.loong $CFLAG -o mux4.loong.ll
-$CC fulladder.loong $CFLAG -o fulladder.loong.ll
-$CC smux4.loong $CFLAG -o smux4.loong.ll
-$CC flop.loong $CFLAG -o flop.loong.ll
+$CXX inv.loong $CXXFLAG -o inv.loong.ll
+$CXX gates.loong $CXXFLAG -o gates.loong.ll
+$CXX and8.loong $CXXFLAG -o and8.loong.ll
+$CXX mux2.loong $CXXFLAG -o mux2.loong.ll
+$CXX mux4.loong $CXXFLAG -o mux4.loong.ll
+$CXX fulladder.loong $CXXFLAG -o fulladder.loong.ll
+$CXX smux4.loong $CXXFLAG -o smux4.loong.ll
+$CXX flop.loong $CXXFLAG -o flop.loong.ll
