@@ -56,8 +56,9 @@ $ ./test.sh
 ## Usage
 
 ```
-/opt/loong-llvm/bin/clang hello.loong -S -emit-llvm -Werror -o hello.ll
+/opt/loong-llvm/bin/clang++ hello.loong -S -emit-llvm -Werror -std=c++17 -o hello.ll
 /opt/loong-llvm/bin/opt -S -load /opt/loong-llvm/lib/LoongLLVM.so -other-pass1 hello.ll > hello1.ll
 /opt/loong-llvm/bin/opt -S -load /opt/loong-llvm/lib/LoongLLVM.so -other-pass2 hello1.ll > hello2.ll
 /opt/loong-llvm/bin/opt -S -load /opt/loong-llvm/lib/LoongLLVM.so -v2c hello2.ll > opt-circuit.svg
+/opt/loong-llvm/bin/opt -S -load /opt/loong-llvm/lib/LoongLLVM.so -generate-verilog hello2.ll 2> hello.v > /dev/null
 ```
