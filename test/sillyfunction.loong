@@ -1,22 +1,35 @@
+#ifdef DEBUG
 #include <iostream>
+#endif
 
 hmodule silly {
+public:
   silly(input  a,
         input  b,
         input  c,
         output y) {
+#ifndef DEBUG
     __assign(y = ~a & ~b & ~c |
                   a & ~b & ~c |
                   a & ~b &  c);
+#endif
   }
 
+#ifdef DEBUG
 public:
-  static auto sillyfunction() {
+  static void sillyfunction() {
     std::cout << "Hello world by Loong" << std::endl;
   }
+#endif
 };
 
+void t(bool b) {
+  silly s(1, 1, 1, 0)
+}
+
+#ifdef DEBUG
 int main(int argc, char *argv[]) {
   silly::sillyfunction();
   return 0;
 }
+#endif

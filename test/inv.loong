@@ -1,8 +1,9 @@
 hmodule inv {
+public:
   inv(input  a[3],
       output y[3]) {
     for (auto i = 0; i < 3; i++) {
-      y[i] = ~a[i];
+      __assign(y[i] = ~a[i]);
     }
   }
 };

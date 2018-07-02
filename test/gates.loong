@@ -1,4 +1,5 @@
 hmodule gates {
+public:
   gates(input  a[3],
         input  b[3],
         output y1[3],
@@ -8,11 +9,11 @@ hmodule gates {
         output y5[3]) {
     /* five different two-input logic gates acting on 4-bit busses */
     for (auto i = 0; i < 3; i++) {
-      y1[i] = a[i] & b[i]; 	// AND
-      y2[i] = a[i] | b[i]; 	// OR
-      y3[i] = a[i] ^ b[i]; 	// XOR
-      y4[i] = ~(a[i] & b[i]); 	// NAND
-      y5[i] = ~(a[i] | b[i]);	// NOR
+      __assign(y1[i] = a[i] & b[i]); 	// AND
+      __assign(y2[i] = a[i] | b[i]); 	// OR
+      __assign(y3[i] = a[i] ^ b[i]); 	// XOR
+      __assign(y4[i] = ~(a[i] & b[i]));	// NAND
+      __assign(y5[i] = ~(a[i] | b[i]));	// NOR
     }
   }
 };

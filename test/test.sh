@@ -12,7 +12,7 @@ $CXX --version
 
 $CXX empty.loong $CXXFLAG -o empty.loong.ll
 
-$CXX -std=c++17 sillyfunction.loong
+$CXX -std=c++17 -DDEBUG sillyfunction.loong
 ./a.out
 $CXX sillyfunction.loong $CXXFLAG -o sillyfunction.loong.ll
 $OPT -S -load $LOONG_LIB -generate-verilog sillyfunction.loong.ll 2> sillyfunction.v > /dev/null
