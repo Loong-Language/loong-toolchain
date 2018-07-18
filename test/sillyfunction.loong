@@ -18,18 +18,15 @@ public:
 #ifdef DEBUG
 public:
   static void sillyfunction() {
-    std::cout << "Hello world by Loong" << std::endl;
+    std::cout << "Hello World in Loong" << std::endl;
   }
 #endif
 };
 
-void t(bool b) {
-  silly s(1, 1, 1, 0)
-}
-
-#ifdef DEBUG
 int main(int argc, char *argv[]) {
+  silly s(1, 1, 1, 0)
+#ifdef DEBUG
   silly::sillyfunction();
+#endif
   return 0;
 }
-#endif

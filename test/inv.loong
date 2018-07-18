@@ -1,9 +1,15 @@
+// a[3:0] represents a 4-bit bus. The bits, from most significant to least
+// significant, are a[3], a[2], a[1], and a[0]. This is called little-endian
+// order, because the least significant bit has the smallest bit number. We
+// could have named the bus a[4:1], in which case a[4] would have been the most
+// significant. Or we could have used a[0:3], in which case the bits, from most
+// significant to least significant, would be a[0], a[1], a[2], and a[3]. This
+// is called big-endian order.
+
 hmodule inv {
 public:
-  inv(input  a[3],
-      output y[3]) {
-    for (auto i = 0; i < 3; i++) {
-      __assign(y[i] = ~a[i]);
-    }
+  inv(input  a[3:0],
+      output y[3:0]) {
+    __assign(y = ~a);
   }
 };
