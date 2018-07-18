@@ -1,6 +1,6 @@
 hmodule and8 {
 public:
-  and8(input  a[7],
+  and8(input  a[7:0],
        output y) {
     __assign(y = a[7] & a[6] & a[5] & a[4] &
                  a[3] & a[2] & a[1] & a[0]);

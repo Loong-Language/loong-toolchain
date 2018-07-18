@@ -1,11 +1,9 @@
 hmodule mux2 {
 public:
-  mux2(input  d0[3],
-       input  d1[3],
+  mux2(input  d0[3:0],
+       input  d1[3:0],
        input  s,
-       output y[3]) {
-    for (auto i = 0; i < 3; i++) {
-      __assign(y[i] = s ? d1[i] : d0[i]);
-    }
+       output y[3:0]) {
+    __assign(y = s ? d1 : d0);
   }
 };

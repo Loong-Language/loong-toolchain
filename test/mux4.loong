@@ -1,13 +1,11 @@
 hmodule mux4 {
 public:
-  mux4(input  d0[3],
-       input  d1[3],
-       input  d2[3],
-       input  d3[3],
-       input  s[1],
-       output y[3]) {
-    for (auto i = 0; i < 3; i++) {
-      __assign(y[i] = s[1] ? (s[0] ? d3[i] : d2[i]) : (s[0] ? d1[i] : d0[i]));
-    }
+  mux4(input  d0[3:0],
+       input  d1[3:0],
+       input  d2[3:0],
+       input  d3[3:0],
+       input  s[1:0],
+       output y[3:0]) {
+    __assign(y = s[1] ? (s[0] ? d3 : d2) : (s[0] ? d1 : d0));
   }
 };
