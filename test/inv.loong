@@ -13,3 +13,9 @@ public:
     __assign(y = ~a);
   }
 };
+
+int main(int argc, char *argv[]) {
+  wire low[3:0], high[3:0];
+  inv finalinv(a, y);
+  return 0;
+}
