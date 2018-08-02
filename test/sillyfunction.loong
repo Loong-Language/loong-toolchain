@@ -25,6 +25,8 @@ public:
 
 int main(int argc, char *argv[]) {
   silly s(1, 1, 1, 0)
+  // FIXME: unimplemented out-of-order parameter
+  silly s(.a(1), .c(1), .y(0), .b(1));
 #ifdef DEBUG
   silly::sillyfunction();
 #endif
